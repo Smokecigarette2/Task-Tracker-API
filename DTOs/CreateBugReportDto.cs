@@ -1,7 +1,4 @@
 namespace Task_Tracker_API.DTOs;
+// Modern C# : Record instead of class for simple data transfer objects
 
-public class CreateBugReportDto
-{
-    public string Title { get; set; } = string.Empty;
-    public string SeverityLevel { get; set; } = string.Empty;
-}
+public record CreateBugReportDto(string Title, string SeverityLevel);

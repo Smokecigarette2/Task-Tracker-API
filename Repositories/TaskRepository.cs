@@ -4,6 +4,9 @@ using Task_Tracker_API.Domain;
 
 namespace Task_Tracker_API.Repositories;
 
+// Handles all database operations via EF Core connected to Supabase
+
+
 public class TaskRepository : ITaskRepository
 {
     private readonly AppDbContext _context;

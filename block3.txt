@@ -1,0 +1,17 @@
+For sending emails when task gets completed I would go async, not sync.
+
+Why? Because completing a task and sending email are two different things. 
+If I call NotificationService directly and email server is down, 
+the task completion fails too.
+
+Better way is to drop a message into a queue when OnTaskCompleted runs. 
+NotificationService watches that queue and sends email on its own. 
+If it crashes, message stays in queue and gets picked up later. 
+They dont affect each other.
+
+Technologies I would use:
+- RabbitMQ for managing the queue
+- MassTransit to work with RabbitMQ in .NET
+
+Direct HTTP/REST call works too but it creates dependency between services 
+which you want to avoid in microservice architecture.

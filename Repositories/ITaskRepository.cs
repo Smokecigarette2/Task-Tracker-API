@@ -2,6 +2,7 @@ using Task_Tracker_API.Domain;
 
 namespace Task_Tracker_API.Repositories;
 
+
 public interface ITaskRepository
 {
     Task<IEnumerable<BaseTask>> GetAllAsync();
