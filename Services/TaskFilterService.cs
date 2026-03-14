@@ -8,7 +8,7 @@ public static class TaskFilterService
     {
         return tasks
             .OfType<BugReportTask>()
-            .Where(t => !t.IsCompleted && t.SeverityLevel == "High")
+            .Where(t => t is { IsCompleted: false, SeverityLevel: "High" })
             .OrderByDescending(t => t.CreatedAt);
     }
 
@@ -16,7 +16,7 @@ public static class TaskFilterService
     {
         return tasks
             .OfType<FeatureRequestTask>()
-            .Where(t => !t.IsCompleted)
+            .Where(t => t is { IsCompleted: false })
             .Sum(t => t.EstimatedHours);
     }
 }
