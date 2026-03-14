@@ -1,9 +1,0 @@
-version: '3.8'
-services:
-  api:
-    build: .
-    ports:
-      - "5023:8080"
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Host=aws-1-ap-south-1.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.texnwmeomednhkwmpvbq;Password=nuadarana3323;Pooling=false;No Reset On Close=true
